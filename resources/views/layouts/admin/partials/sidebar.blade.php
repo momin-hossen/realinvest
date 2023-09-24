@@ -140,7 +140,7 @@
 
         <li class="menu-item {{ Route::is('admin.projects_plans.index') ? 'active' :'' }}">
             <a href="{{ route('admin.projects_plans.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bxs-share-alt"></i>
                 <div>{{ __('Projects Plan') }}</div>
             </a>
         </li>

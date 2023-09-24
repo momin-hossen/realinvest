@@ -15,25 +15,23 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('thumbnail');
-            $table->text('preview');
+            $table->string('gallery_image');
+            $table->string('thumbnail_image');
+            $table->string('preview_image');
             $table->integer('invest_type');
             $table->integer('capital_back');
             $table->integer('min_invest');
             $table->integer('max_invest');
             $table->integer('max_invest_amount');
             $table->integer('is_period');
-            $table->integer('period_duration');
             $table->string('profit_range');
             $table->string('loss_range');
-            $table->integer('status');
-            $table->integer('accept_new_investor');
-            $table->integer('accept_installments');
+            $table->string('location');
             $table->string('address');
+            $table->longText('description');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
