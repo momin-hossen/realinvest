@@ -145,5 +145,12 @@
             </a>
         </li>
 
+        <li class="menu-item {{ Route::is('admin.payout_methods.index') ? 'active' :'' }}">
+            <a href="{{ route('admin.payout_methods.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-credit-card"></i>
+                <div>{{ __('Payout Methods') }}</div>
+            </a>
+        </li>
+
     </ul>
 </aside>

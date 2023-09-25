@@ -1,6 +1,6 @@
 @extends('layouts.admin.app', [
-    'title' => 'Project Plan',
-    'buttons' => [['name' => 'Add new', 'link' => route('admin.projects_plans.create'), 'icon' => 'bx bx-plus-circle']],
+    'title' => 'Payout Method',
+    'buttons' => [['name' => 'Add new', 'link' => route('admin.payout_methods.create'), 'icon' => 'bx bx-plus-circle']],
 ])
 
 @section('contents')
@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row justify-content-between">
                         <div class="col-sm-6">
-                            <h5>Pages List</h5>
+                            <h5>Payout Method List</h5>
                         </div>
                         <div class="col-md-4 text-end">
                             <form action="" method="get">
@@ -27,39 +27,26 @@
                         <thead class="table-light">
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('Title') }}</th>
-                                <th>{{ __('Slug') }}</th>
-                                <th>{{ __('Gallery Image') }}</th>
-                                <th>{{ __('Thumbnail Image') }}</th>
-                                <th>{{ __('Preview Image') }}</th>
-                                <th>{{ __('Invest Type') }}</th>
-                                <th>{{ __('Capital Back') }}</th>
-                                <th>{{ __('Minimum Invest') }}</th>
-                                <th>{{ __('Maximum Invest') }}</th>
-                                <th>{{ __('Maximum Invest Amount') }}</th>
-                                <th>{{ __('Is Period') }}</th>
-                                <th>{{ __('Profit range') }}</th>
-                                <th>{{ __('Loss range') }}</th>
-                                <th>{{ __('Location') }}</th>
-                                <th>{{ __('Address') }}</th>
-                                <th>{{ __('Description') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Image') }}</th>
+                                <th>{{ __('Minimum Limit') }}</th>
+                                <th>{{ __('Maximum Limit') }}</th>
+                                <th>{{ __('Delay') }}</th>
+                                <th>{{ __('Fixed Charge') }}</th>
+                                <th>{{ __('Percent Charge') }}</th>
+                                <th>{{ __('Date') }}</th>
+                                <th>{{ __('Instruction') }}</th>
+                                <th>{{ __('Status') }}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($projects_plans as $plan)
+                            @foreach ($payout_methods as $payout)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $plan->title }}</td>
-                                    <td>{{ $plan->slug }}</td>
+                                    <td>{{ $payout->name }}</td>
                                     <td>
-                                        <img width="35" height="35" class="rounded-circle" src="{{ asset($plan->gallery_image ?? '') }}">
-                                    </td>
-                                    <td>
-                                        <img width="35" height="35" class="rounded-circle" src="{{ asset($plan->thumbnail_image ?? '') }}">
-                                    </td>
-                                    <td>
-                                        <img width="35" height="35" class="rounded-circle" src="{{ asset($plan->preview_image ?? '') }}">
+                                        <img width="35" height="35" class="rounded-circle" src="{{ asset($payout->image ?? '') }}">
                                     </td>
                                     <td>
                                         <span class="badge rounded-pill bg-label-{{ $plan->invest_type ? 'primary':'danger' }}">{{ $plan->invest_type ? 'Percentage':'Fixed' }}</span>
@@ -79,7 +66,7 @@
                                     <td>{{ $plan->address }}</td>
                                     <td>{{ $plan->description }}</td>
                                     <td>
-                                        <div class="dropdown">
+                                        {{-- <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bx bx-dots-vertical-rounded"></i>
@@ -95,7 +82,7 @@
                                                     {{ __('Delete') }}
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -104,7 +91,7 @@
                 </div>
                 <div class="row mx-2 mt-2">
                     <div class="col-sm-12">
-                        {{ $projects_plans->links('vendor.pagination.bootstrap-5') }}
+                        {{ $payout_methods->links('vendor.pagination.bootstrap-5') }}
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::resource('categories', Admin\CategoryController::class)->except('create', 'show', 'edit');
     Route::resource('pages', Admin\PageController::class)->except('show');
     Route::resource('projects_plans', Admin\ProjectsPlanController::class);
+    Route::resource('payout_methods', Admin\PayoutMethodController::class);
 
     // Settings
     Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
