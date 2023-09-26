@@ -17,7 +17,7 @@
                             <div class="col-12 text-center mb-3">
                                 <div class="gallery_image">
                                     <label for="gallery_image" class="form-label text-start d-block">@lang('Gallery Image')</label>
-                                    <label for="gallery_image" class="image-preview">
+                                    <label for="gallery_image" class="image-gallery">
                                         <img width="60px" height="60px" class="mt-3" src="{{ asset('assets/img/icons/no-image.png') }}" alt="">
                                         <p>{{ __('Please select an image.') }}</p>
                                     </label>
@@ -27,7 +27,7 @@
                             <div class="col-6 text-center mb-3">
                                 <div class="thumbnail_image">
                                     <label for="thumbnail_image" class="form-label text-start d-block">@lang('Thumbnail Image')</label>
-                                    <label for="thumbnail_image" class="image-preview">
+                                    <label for="thumbnail_image" class="image-thumbnail">
                                         <img width="60px" height="60px" class="mt-3" src="{{ asset('assets/img/icons/no-image.png') }}" alt="">
                                         <p>{{ __('Please select an image.') }}</p>
                                     </label>

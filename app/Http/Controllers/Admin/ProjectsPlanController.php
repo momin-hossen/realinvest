@@ -21,7 +21,7 @@ class ProjectsPlanController extends Controller
             $q->where('title', 'like', '%'.request('search').'%');
         })
         ->latest()
-        ->paginate(2);
+        ->paginate(10);
 
         return view('admin.projects_plans.index', compact('projects_plans'));
     }
@@ -58,7 +58,7 @@ class ProjectsPlanController extends Controller
             'description' => 'required',
         ]);
 
-        ProjectsPlan::create($request->except('image') + [
+        ProjectsPlan::create($request->except('gallery_image','thumbnail_image', 'preview_image') + [
             'slug' => Str::slug($request->title),
             'gallery_image' => $this->upload($request, 'gallery_image'),
             'thumbnail_image' => $this->upload($request, 'thumbnail_image'),
@@ -93,7 +93,19 @@ class ProjectsPlanController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-
+            'title' => 'required|max:255',
+            'slug' => 'unique',
+            'invest_type' => 'required',
+            'capital_back' => 'required',
+            'min_invest' => 'required|numeric|min:0',
+            'max_invest' => 'required|numeric|min:0',
+            'max_invest_amount' => 'required|numeric|min:0',
+            'is_period' => 'required',
+            'profit_range' => 'required',
+            'loss_range' => 'required',
+            'location' => 'required',
+            'address' => 'required',
+            'description' => 'required',
         ]);
 
         $projects_plans = ProjectsPlan::findOrFail($id);

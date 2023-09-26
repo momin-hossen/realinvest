@@ -48,41 +48,34 @@
                                     <td>
                                         <img width="35" height="35" class="rounded-circle" src="{{ asset($payout->image ?? '') }}">
                                     </td>
+                                    <td>{{ $payout->min_limit }}</td>
+                                    <td>{{ $payout->max_limit }}</td>
+                                    <td>{{ $payout->delay }}</td>
+                                    <td>{{ $payout->fixed_charge }}</td>
+                                    <td>{{ $payout->percent_charge }}</td>
+                                    <td>{{ $payout->data }}</td>
+                                    <td>{{ $payout->instruction }}</td>
                                     <td>
-                                        <span class="badge rounded-pill bg-label-{{ $plan->invest_type ? 'primary':'danger' }}">{{ $plan->invest_type ? 'Percentage':'Fixed' }}</span>
+                                        <span class="badge rounded-pill bg-label-{{ $payout->status ? 'primary':'danger' }}">{{ $payout->status ? 'Active':'Deactive' }}</span>
                                     </td>
                                     <td>
-                                        <span class="badge rounded-pill bg-label-{{ $plan->capital_back ? 'primary':'danger' }}">{{ $plan->capital_back ? 'Yes':'No' }}</span>
-                                    </td>
-                                    <td>{{ $plan->min_invest }}</td>
-                                    <td>{{ $plan->max_invest }}</td>
-                                    <td>{{ $plan->max_invest_amount }}</td>
-                                    <td>
-                                        <span class="badge rounded-pill bg-label-{{ $plan->is_period ? 'primary':'danger' }}">{{ $plan->is_period ? 'Yes':'No' }}</span>
-                                    </td>
-                                    <td>{{ $plan->profit_range }}</td>
-                                    <td>{{ $plan->loss_range }}</td>
-                                    <td>{{ $plan->location }}</td>
-                                    <td>{{ $plan->address }}</td>
-                                    <td>{{ $plan->description }}</td>
-                                    <td>
-                                        {{-- <div class="dropdown">
+                                        <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('admin.projects_plans.edit', $plan->id) }}">
+                                                <a class="dropdown-item" href="{{ route('admin.payout_methods.edit', $payout->id) }}">
                                                     <i class="bx bx-edit-alt me-1"></i>
                                                     {{ __('Edit') }}
                                                 </a>
                                                 <a class="dropdown-item delete-confirm" data-method="DELETE"
-                                                    href="{{ route('admin.projects_plans.destroy', $plan->id) }}">
+                                                    href="{{ route('admin.payout_methods.destroy', $payout->id) }}">
                                                     <i class="bx bx-trash me-1"></i>
                                                     {{ __('Delete') }}
                                                 </a>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
