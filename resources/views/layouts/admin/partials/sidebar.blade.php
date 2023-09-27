@@ -138,14 +138,14 @@
             </ul>
         </li>
 
-        <li class="menu-item {{ Route::is('admin.projects_plans.index') ? 'active' :'' }}">
+        <li class="menu-item {{ Route::is('admin.projects_plans.index', 'admin.projects_plans.create', 'admin.projects_plans.edit') ? 'active' :'' }}">
             <a href="{{ route('admin.projects_plans.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-share-alt"></i>
                 <div>{{ __('Projects Plan') }}</div>
             </a>
         </li>
 
-        <li class="menu-item {{ Route::is('admin.payout_methods.index') ? 'active' :'' }}">
+        <li class="menu-item {{ Route::is('admin.payout_methods.index', 'admin.payout_methods.create', 'admin.payout_methods.edit') ? 'active' :'' }}">
             <a href="{{ route('admin.payout_methods.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-credit-card"></i>
                 <div>{{ __('Payout Methods') }}</div>
